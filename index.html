@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIKARI-Space</title>
+
+    <!--1. Kết nối Font chữ Be Vietnam Pro từ Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!--2. Kết nối tệp CSS-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>HIKARI</h1>
+    <div class="subtitle">Khoảng cách địa lý không làm mờ đi ánh sáng</div>
+  </header>
+
+  <main class="main-container">
+
+    <!--1.KHỐI ĐỒNG HỒ KÉP (VN &JP)-->
+    <section class="clock-container">
+     <!-- Đồng hồ Việt Nam -->
+     <div class="clock-card vn-card">
+      <div class="location-title">Việt Nam (ICT) &#x1f1f3;</div>
+      <div class="time-display" id="vn-time">--:--:--</div>
+     </div>
+
+     <!-- Đồng hồ Nhật Bản -->
+     <div class="clock-card jp-card">
+      <div class="location-title">Nhật Bản (JST) &#127477;</div>
+      <div class="time-display" id="jp-time">--:--:--</div>
+     </div>
+   </section>
+
+    <!--2.THẺ THANH TIẾN ĐỘ-->
+    <section class="progress-card">
+      <div class="progress-header">
+        <span>🌸Hành trình 3 năm của Hime</span>
+        <span id="progress-text">0.00%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </section>  
+  </main>
+
+  <!--3. Kết nối tệp JavaScript-->
+  <script src="script.js"></script>
+</body>
+</html>
