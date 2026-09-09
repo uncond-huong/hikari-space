@@ -51,7 +51,7 @@
       <div class="feed-header">
         <span>📸 Khoảnh khắc mới nhất</span>
       </div>
-
+      
       <div class="post-card">
         <div class="post-user">
           <div class="user-avatar">🙍‍♂️</div>
@@ -88,6 +88,26 @@
       <span class="nav-label">Chúng mình</span>
     </a>
   </nav>
+
+  <div class="modal-overlay" id="post-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <span>🌸 Tạo khoảnh khắc mới</span>
+        <button id="btn-close-modal">❌</button>
+      </div>
+      <div class="modal-body">
+        <textarea id="post-input-text" placeholder="Chia sẻ gì với nhà chút đi nhé..."></textarea>
+        <div class="file-upload-wrapper">
+          <label for="post-input-file" class="file-label">📷 Chọn ảnh từ máy</label>
+          <input type="file" id="post-input-file" accept="image/*" style="display: none;">
+        </div>
+        <div id="image-preview" class="image-preview-box"></div>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-submit-post" class="btn-primary">Đăng bài</button>
+      </div>
+    </div>
+  </div>
 
   <!--3. Kết nối tệp JavaScript-->
   <script src="script.js"></script>
