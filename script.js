@@ -40,13 +40,13 @@ updateProgressBar();
 
 //3. Popup & Feed
 
-const modal = document.getElementById('post-modal');
-const btnCloseModal = document.getElementById('btn-close-modal');
-const btnSubmitPost = document.getElementById('btn-submit-post');
-const fileInput = document.getElementById('post-input-file');
-const previewBox = document.getElementById('image-preview');
-const textInput = document.getElementById('post-input-text');
-const feedContainer = document.querySelector('.feed-container');
+const modal = document.getElementById('post-modal'); //Tìm giá trị trong HTML
+const btnCloseModal = document.getElementById('btn-close-modal'); //Tìm giá trị trong HTML
+const btnSubmitPost = document.getElementById('btn-submit-post'); //Tìm giá trị trong HTML
+const fileInput = document.getElementById('post-input-file'); //Tìm giá trị trong HTML
+const previewBox = document.getElementById('image-preview'); //Tìm giá trị trong HTML
+const textInput = document.getElementById('post-input-text'); //Tìm giá trị trong HTML
+const feedContainer = document.querySelector('.feed-container'); //Tìm giá trị trong CSS
 let selectedImageBase64 = ''; //Biến tạm chứa dữ liệu ảnh
 //3.1 Mở Modal đăng bài
 function openPostModal() {
@@ -73,8 +73,8 @@ if(fileInput) {
             const reader = new FileReader();
             reader.onload = function(event) {
                 selectedImageBase64 = event.target.result;
-                previewBox.innerHTML = `<img src="{seclectedImageBase64}" alt="Preview">`;             
-                previewBox.innerHTML = `<img src="{seclectedImageBase64}" alt="Preview">`;             
+                previewBox.innerHTML = `<img src="{selectedImageBase64}" alt="Preview"`;             
+                previewBox.innerHTML = `<img src="{selectedImageBase64}" alt="Preview">`;             
             };
             reader.readAsDataURL(file);
         }
@@ -84,7 +84,7 @@ if(fileInput) {
 if(btnSubmitPost) {
     btnSubmitPost.addEventListener('click', function() {
         const content = textInput.value.trim();
-        if (!content && !seclectedImageBase64) {
+        if (!content && !selectedImageBase64) {
             alert('Phương ơi, hãy gõ nội dung hoặc chọn một tấm ảnh nhé!');
             return;
         }
@@ -96,7 +96,7 @@ if(btnSubmitPost) {
         const newPostCard = document.createElement('div');
         newPostCard.className = 'post-card';
         newPostCard.innerHTML = `
-            <div class="post-userr"
+            <div class="post-user"
                 <div class="user-avatar">🙍‍♂️</div>
                 <div class="user-meta">
                     <span class="user-name">Ouji</span>
@@ -123,3 +123,22 @@ if(btnSubmitPost) {
         closePostModal();
     })
 }
+
+//4. Xử lý chuyển tab & cập nhật trạng thái footer
+
+const navItems = document.querySelectorAll('.bottom-nav .nav-item');
+
+navItems.forEach(item => {
+    item.addEventListener('click', function() {
+        //Nếu là nút Đăng bài (mở Popup) thì không đổi Tab active
+        if (this.id === 'btn-open-post') return;
+        //Bỏ class 'active' của tất cả nút
+        navItems.forEach(nav => nav.classList.remove('active'));
+        //Thêm class 'active vào đúng nút vừa thao tác
+        this.classList.add('active');
+        //Lấy tên khu vực cần hiển thị từ data-target
+        const targetSectionId = this.getAttribute('data-target')
+        //Tăng số lượng trang thì dùng targetSectionId để ẩn/hiện trang tương ứng
+        console.log("Đã chuyển sang tab:", targetSectionId);
+    });
+});

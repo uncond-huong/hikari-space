@@ -75,18 +75,18 @@
   </main>
 
   <nav class="bottom-nav">
-    <a href="#" class="nav-item active">
+    <button type="button" class="nav-item active" data-target="home-section">
       <span class="nav-icon">🏠</span>
       <span class="nav-label">Trang chủ</span>
-    </a>
-    <a href="#" class="nav-item">
+    </button>
+    <button type="button" class="nav-item" id="btn-open-post" onclick="openPostModal()">
       <span class="nav-icon">📷</span>
       <span class="nav-label">Khoảnh khắc</span>
-    </a>
-    <a href="#" class="nav-item">
+    </button>
+    <button type="button" class="nav-item" data-target="about-section">
       <span class="nav-icon">🤝</span>
       <span class="nav-label">Chúng mình</span>
-    </a>
+    </button>
   </nav>
 
   <div class="modal-overlay" id="post-modal">
