@@ -20,6 +20,8 @@ const ALLOWED_EMAILS = [
     "guestthao@hikari.com",
     "guestchinh@hikari.com",
     "guesttuong@hikari.com",
+    "huong.test@hikari.com",
+    "phuong.sandbox@hikari.com"
 ];
 
 export let currentUserName = "Thành viên";

@@ -303,30 +303,65 @@
       </div>
     </div>
 
-    <!-- ==================== KHU VỰC CHIBI TIỂU THẾ PHƯƠNG (BÍ MẬT) ==================== -->
+   <!-- ==================== KHU VỰC CHIBI TIỂU THẾ PHƯƠNG & THU HƯỜNG ==================== -->
     
-    <!-- 1. Floating Widget Chibi ở góc dưới bên phải -->
-    <div id="chibi-widget" class="chibi-container is-idle hidden">
-      <div id="chibi-bubble" class="chibi-bubble hidden">
-        <p id="chibi-text">Tiểu Thế Phương đang trực ca...</p>
+    <!-- Khung Floating Widget Chibi nổi ở góc dưới màn hình -->
+<div id="chibi-widget" class="chibi-widget-container is-idle hidden">
+  
+  <!-- Khung ghép Layer Chibi Đôi -->
+  <div id="chibi-couple-zone" class="chibi-couple-wrapper">
+    
+    <!-- 1. CHIBI TIỂU THẾ PHƯƠNG -->
+    <div id="chibi-phuong-builder" class="chibi-builder-container">
+      <!-- Bong bóng thoại riêng bé Phương -->
+      <div id="bubble-phuong" class="chibi-bubble hidden">
+        <p id="chibi-text-phuong">Tiểu Thế Phương đang trực ca...</p>
       </div>
-      <img id="chibi-img" src="https://placehold.co/100x100/ffd1dc/333333?text=Chibi+Sleep" alt="Tiểu Thế Phương" />
+
+      <img id="phuong-base" class="chibi-layer z-base" src="./assets/phuong/base_body.png" alt="Phôi Phương" />
+      <img id="phuong-bottom" class="chibi-layer z-bottom" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Quần" />
+      <img id="phuong-top" class="chibi-layer z-top" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Áo" />
+      <img id="phuong-head" class="chibi-layer z-head" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Đầu" />
+      <img id="phuong-left-arm" class="chibi-layer z-arms" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Tay trái" />
+      <img id="phuong-right-arm" class="chibi-layer z-arms" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Tay phải" />
+      <img id="phuong-left-leg" class="chibi-layer z-legs" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Chân trái" />
+      <img id="phuong-right-leg" class="chibi-layer z-legs" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Chân phải" />
+      <img id="phuong-shoes" class="chibi-layer z-shoes" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Giày" />
+      <img id="phuong-acc" class="chibi-layer z-acc" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Phụ kiện" />
+      <img id="phuong-tail" class="chibi-layer z-tail" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Đuôi" />
+      <img id="phuong-pets" class="chibi-layer z-pets" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Pets" />
+      <img id="phuong-habitat" class="chibi-layer z-habitat" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Môi trường" />
     </div>
 
-    <!-- 2. Popup Cuộn Thư Bí Mật (Kích hoạt Chibi cho Hường) -->
-    <div id="chibi-letter-modal" class="status-modal-overlay">
-      <div class="status-modal-content letter-modal-box">
-        <h4 class="letter-title">📜 Cuộn Thư Đồng Hành</h4>
-        <p class="letter-desc">
-          HIKARI có một người bạn nhỏ tên là <strong>世方 (Tiểu Thế Phương)</strong>. 
-          Cậu ấy muốn ở góc màn hình đồng hành, cập nhật tin tức tích cực từ bản thể mỗi ngày cho cậu. 
-          Cậu có muốn gọi cậu ấy ra không?
-        </p>
-        <div class="status-modal-actions action-center">
-          <button id="btn-decline-chibi" class="btn-cancel">Để sau nha</button>
-          <button id="btn-activate-chibi" class="btn-save btn-pink">✨ Gọi Tiểu Thế Phương</button>
-        </div>
+    <!-- 2. CHIBI TIỂU THU HƯỜNG -->
+    <div id="chibi-huong-builder" class="chibi-builder-container">
+      <!-- Bong bóng thoại riêng bé Hường -->
+      <div id="bubble-huong" class="chibi-bubble hidden">
+        <p id="chibi-text-huong">Công chúa chào cậu nha! ✨</p>
       </div>
+
+      <img id="huong-base" class="chibi-layer z-base" src="./assets/huong/base_body.png" alt="Phôi Hường" />
+      <img id="huong-bottom" class="chibi-layer z-bottom" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Quần" />
+      <img id="huong-top" class="chibi-layer z-top" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Áo" />
+      <img id="huong-head" class="chibi-layer z-head" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Đầu" />
+      <img id="huong-left-arm" class="chibi-layer z-arms" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Tay trái" />
+      <img id="huong-right-arm" class="chibi-layer z-arms" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Tay phải" />
+      <img id="huong-left-leg" class="chibi-layer z-legs" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Chân trái" />
+      <img id="huong-right-leg" class="chibi-layer z-legs" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Chân phải" />
+      <img id="huong-shoes" class="chibi-layer z-shoes" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Giày" />
+      <img id="huong-acc" class="chibi-layer z-acc" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Phụ kiện" />
+      <img id="huong-tail" class="chibi-layer z-tail" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Đuôi" />
+      <img id="huong-pets" class="chibi-layer z-pets" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Pets" />
+      <img id="huong-habitat" class="chibi-layer z-habitat" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Môi trường" />
+    </div>
+
+  </div>
+</div>
+
+    <!-- 2. Popup Cuộn Thư / Nghi Thức Bí Mật (Kích hoạt Chibi) -->
+    <div id="chibi-letter-modal" class="status-modal-overlay">
+    <!-- JS sẽ tự động bơm đúng giao diện (Nghi Thức hoặc Cuộn Thư) vào đây -->
+      <div class="status-modal-content letter-modal-box" id="chibi-letter-content"></div>
     </div>
 
     <!-- ==================== KHU VỰC ADMIN / TỔNG BỘ THẦN THỨC ==================== -->

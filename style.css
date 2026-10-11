@@ -4,6 +4,8 @@
 @import url('./component/avatar/header.css');
 @import url('./component/auth/auth.css');
 @import url('./component/post/post.css');
+@import url('./component/clone_chibi/chibi.css');
+@import url('./component/clone_chibi/summon.css');
 
 /* 2. Khai báo bảng màu Pastel chuẩn */
 :root {

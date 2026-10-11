@@ -1,11 +1,19 @@
-import { db, addDoc, collection, serverTimestamp, query, where, orderBy, limit, getDocs } from '../firebase.js';
-/*Ghi nhận hành động của main user vào Firestore
+import { db, addDoc, collection, serverTimestamp, query, where, orderBy, limit, getDocs } from '../../firebase.js';
+import { isSandboxAccount } from './core.js'; // 
+
+/* Ghi nhận hành động của main user vào Firestore
 * @param {string} action - Hành động của main user
-* @param {string} userId - ID của main user
+* @param {string} userId - ID của main user (thường là email)
 * @param {string} targetId - ID của đối tượng bị tác động (nếu có)
 * @param {object} details - Thông tin bổ sung (vd: { key: 'Đ', song: 'Làm sao để em tựa vào' })
 */
-export async function saveLog(action, userId, targetId = "soft", details = {}) {
+export async function saveLog(action, userId, targetId = "", details = {}) {
+    // 🛡️ BẢO VỆ: Nếu là tài khoản test/sandbox thì bỏ qua, không ghi log rác lên Firestore
+    if (isSandboxAccount(userId)) {
+        console.log("🛡️ Môi trường Sandbox: Bỏ qua ghi log cho tài khoản:", userId);
+        return;
+    }
+
     try {
         const logData = {
             action: action,

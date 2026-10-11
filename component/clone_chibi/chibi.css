@@ -132,8 +132,11 @@
   white-space: nowrap;
 }
 
-/* ==================== CHIBI WIDGET STYLES ==================== */
-.chibi-container {
+/* ==================== CHIBI WIDGET & LAYER STYLES (UPGRADED) ==================== */
+
+/* 1. Khung Widget Nổi cố định góc màn hình */
+.chibi-container,
+.chibi-widget-container {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -143,49 +146,168 @@
   align-items: flex-end;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), right 0.5s ease, bottom 0.5s ease;
 }
 
-#chibi-img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+/* 2. Khung chứa Cặp đôi Chibi đứng sát nhau */
+.chibi-couple-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
 }
 
+/* 3. Khung nhân vật riêng lẻ (Chứa các Layer) */
+.chibi-builder-container {
+  position: relative;
+  width: 85px;
+  height: 110px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+/* Đứng sát rạt vào nhau (Bé Hường lùi nhẹ đè lên chút cho ngọt) */
+#chibi-huong-builder {
+  margin-left: -12px;
+}
+
+.chibi-builder-container:hover {
+  transform: scale(1.05);
+}
+
+/* 4. Bong bóng lời thoại Chibi riêng cho từng bé */
 .chibi-bubble {
   background: #ffffff;
   border: 2px solid #ffb6c1;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 8px 12px;
   margin-bottom: 8px;
-  max-width: 180px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  font-size: 0.85rem;
+  max-width: 160px;
+  min-width: 100px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  font-size: 0.8rem;
   color: #333;
+  text-align: center;
+  position: absolute;
+  bottom: 100%; /* Đặt ngay trên đỉnh đầu nhân vật */
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  white-space: normal;
+  word-break: break-word;
+  z-index: 100;
+  animation: bubblePop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Animation cho Chibi */
+/* Đuôi bóng thoại trỏ xuống đầu bé */
+.chibi-bubble::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #ffb6c1 transparent transparent transparent;
+}
+
+@keyframes bubblePop {
+  0% { transform: scale(0.6) translateX(-80%) translateY(10px); opacity: 0; }
+  100% { transform: scale(1) translateX(-50%) translateY(0); opacity: 1; }
+}
+
+/* 5. Khớp 100% các lớp ảnh Layer đè lên nhau */
+.chibi-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.14));
+}
+
+/* 6. Thứ tự Layer (Z-Index) */
+.z-base    { z-index: 10; } /* Phôi cơ thể */
+.z-bottom  { z-index: 20; } /* Quần / Váy */
+.z-shoes   { z-index: 30; } /* Giày / Dép */
+.z-top     { z-index: 40; } /* Áo */
+.z-head    { z-index: 50; } /* Tóc / Đầu */
+.z-arms    { z-index: 35; }
+.z-legs    { z-index: 15; }
+.z-acc     { z-index: 60; } /* Phụ kiện cầm tay / Nón */
+.z-tail    { z-index: 25; }
+.z-pets    { z-index: 55; }
+.z-habitat { z-index: 45; }
+
+/* 7. Hiệu ứng nảy tưng tưng khi click tương tác */
+.chibi-pop-jump {
+  animation: chibiJump 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes chibiJump {
+  0%   { transform: translateY(0) scale(1); }
+  40%  { transform: translateY(-16px) scale(1.08); }
+  70%  { transform: translateY(2px) scale(0.96); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Utility Class */
+.hidden {
+  display: none !important;
+}
+/* ---------------- 🌟 ANIMATIONS & TƯƠNG TÁC ---------------- */
+
+/* Hiệu ứng Hít thở & Lắc lư nhẹ tự nhiên (Idle) */
+.chibi-container.is-idle .chibi-couple-wrapper,
+.chibi-container.is-idle #chibi-couple-zone,
 .chibi-container.is-idle #chibi-img {
-  opacity: 0.7;
-  transform: scale(0.85);
-  animation: chibiSleep 2.5s infinite ease-in-out;
+  animation: chibiIdleBreath 3s infinite ease-in-out alternate;
 }
 
-@keyframes chibiSleep {
-  0%, 100% { transform: scale(0.85) translateY(0); }
-  50% { transform: scale(0.8) translateY(3px); opacity: 0.5; }
+@keyframes chibiIdleBreath {
+  0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.95; }
+  50% { transform: translateY(-5px) scale(0.98, 1.02) rotate(-2deg); opacity: 0.85; }
+  100% { transform: translateY(-2px) scale(1.01, 0.99) rotate(2deg); opacity: 0.95; }
 }
 
-.chibi-container.is-active #chibi-img {
-  opacity: 1;
-  transform: scale(1);
-  animation: chibiHop 0.7s infinite ease-in-out;
+/* Rê chuột vào (Hover) -> Nảy nhẹ lên chào */
+.chibi-container:hover {
+  transform: scale(1.08) translateY(-6px);
 }
 
-@keyframes chibiHop {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(-4deg); }
+/* Click bấm chọc -> Xẹp dẻo xíu */
+.chibi-container:active {
+  transform: scale(1.15, 0.82) translateY(6px);
+}
+
+/* Class nảy vút lên khi click xong */
+.chibi-pop-jump {
+  animation: chibiPop 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+@keyframes chibiPop {
+  0% { transform: scale(1) translateY(0); }
+  40% { transform: scale(0.9, 1.18) translateY(-25px); }
+  70% { transform: scale(1.05, 0.95) translateY(2px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+/* Hiệu ứng "Tịch thu" Bé Hường khi giận dỗi (Chui xuống đất biến mất) */
+#chibi-huong-builder.is-confiscated {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(120px) scale(0.3) rotate(15deg) !important;
+  transition: all 0.6s cubic-bezier(0.6, -0.28, 0.735, 0.045) !important;
+}
+
+/* Hiệu ứng "Bỏ chạy" Bé Hường */
+#chibi-huong-builder.is-run-away {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateX(200px) !important;
+  transition: transform 0.5s ease-in, opacity 0.4s ease-in !important;
 }
 
 /* ==================== CHIBI LETTER MODAL STYLES ==================== */

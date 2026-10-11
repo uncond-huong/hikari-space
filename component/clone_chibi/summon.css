@@ -1,0 +1,174 @@
+/* ==================== THEME NGHI THỨC PHÁP THUẬT (PHƯƠNG) ==================== */
+
+/* Giao diện pháp trận tối lung linh của Phương */
+.letter-modal-box {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    position: relative;
+    width: 90%;
+    max-width: 360px;
+    margin: auto;
+}
+.scroll-modal-summon {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 28px 22px;
+    background: url('scroll-summon.png') center/cover;
+    filter: drop-shadow(0 0 18px rgba(56, 189, 248, 0.7));
+    position: relative;
+}
+
+.magic-ritual-theme .letter-title {
+  background: #ff7b98;
+}
+
+.magic-desc {
+  color: #0d0c0c !important;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Nút hủy phong cách thần bí */
+.btn-ritual-cancel {
+  background: #ead7c5 !important;
+  color: #493c32 !important;
+  border: 1px solid #e6ccb6 !important;
+  padding: 3px 6px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* Nút Triệu Hồi / Tách Linh Hồn lấp lánh */
+.btn-magic {
+  background: linear-gradient(135deg, #2563EB 50%, #1D4ED8 50%) !important;
+  color: #FFFFFF !important;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.7) !important;
+  border: 2px solid #00f2fe;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  animation: magicPulse 2s infinite alternate;
+}
+
+@keyframes magicPulse {
+  0% { transform: scale(1); box-shadow: 0 0 10px #00f2fe, inset 0 0 5px #00f2fe; }
+  100% { transform: scale(1.04); box-shadow: 0 0 25px #4facfe, inset 0 0 15px #4facfe; }
+}
+
+/* ==================== THEME LỜI MONG MUỐN ĐỒNG HÀNH (HƯỜNG) ==================== */
+
+.letter-modal-box {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  position: relative;
+  width: 90%;
+  max-width: 360px;
+  margin: auto;
+}
+
+.warm-scroll-theme {
+  width: 100%;
+  height: 35%;
+  display: block;
+  justify-content: center;
+  padding: 40px 30px;
+  background: url('scroll-warm.png') center/cover;
+  filter: drop-shadow(0 0 18px rgba(255, 189, 248, 0.7));
+  position: relative;
+}
+
+.magic-ritual-theme .letter-title {
+  background: #ff7b98;
+}
+
+.warm-desc {
+  color: #0d0c0c !important;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Nút hủy phong cách thần bí */
+.btn-ritual-cancel {
+  background: #ead7c5 !important;
+  color: #493c32 !important;
+  border: 1px solid #e6ccb6 !important;
+  padding: 3px 6px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* Nút Triệu Hồi / Tách Linh Hồn lấp lánh */
+.btn-pink {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%) !important;
+  color: #c31010 !important;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(255, 154, 158, 0.4) !important;
+  border: 2px solid #f2aee0;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  animation: magicPulse 2s infinite alternate;
+}
+
+.btn-pink:hover {
+  background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+}
+
+@keyframes magicPulse {
+  0% { transform: scale(1); box-shadow: 0 0 10px #00f2fe, inset 0 0 5px #00f2fe; }
+  100% { transform: scale(1.04); box-shadow: 0 0 25px #4facfe, inset 0 0 15px #4facfe; }
+}
+
+
+/* ==================== HIỆU ỨNG TRIỆU HỒI CHIBI (HƯỜNG) ==================== */
+
+/* 1. Animation Chibi bốc cháy quầng sáng & nảy vút ra */
+.chibi-summon-appear {
+  animation: chibiSummonPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards !important;
+}
+
+@keyframes chibiSummonPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.1) translateY(80px) rotate(-15deg);
+    filter: drop-shadow(0 0 25px #ff7b98);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.25) translateY(-20px) rotate(5deg);
+    filter: drop-shadow(0 0 30px #ff9eaa);
+  }
+  80% {
+    transform: scale(0.95) translateY(5px) rotate(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotate(0deg);
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
+  }
+}
+
+/* 2. Các hạt Kim tuyến & Tim tỏa ra xung quanh */
+.summon-particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  font-size: 20px;
+  user-select: none;
+  animation: particleFly 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes particleFly {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.5) rotate(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty)) scale(1.5) rotate(var(--rot));
+  }
+}  
