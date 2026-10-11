@@ -9,21 +9,16 @@ export function isSandboxAccount(email) {
     return email.includes("test") || email.includes("sandbox");
 }
 
-// core.js
-
-// 1. Kiểm tra xem Hường đã mở khóa chưa
+// Kiểm tra xem Tiểu thư Hường đã được mở khóa chưa
 export function isHuongUnlocked() {
-    return localStorage.getItem("huong_unlocked") === "true";
+    // Có thể check localStorage hoặc điều kiện đặc biệt nào đó (ví dụ: hoàn thành nhiệm vụ, nhập mật mã, v.v.)
+    // return localStorage.getItem("huong_unlocked") === "true";
+    return true;
 }
 
-// 2. Mở khóa Hường
+// Hàm mở khóa Hường (gọi khi đạt điều kiện)
 export function unlockHuong() {
     localStorage.setItem("huong_unlocked", "true");
-}
-
-// 3. Khóa Hường lại
-export function lockHuong() {
-    localStorage.setItem("huong_unlocked", "false");
 }
 
 // Trạng thái đồ đang mặc hiện tại
