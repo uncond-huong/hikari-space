@@ -138,12 +138,13 @@
 .chibi-container,
 .chibi-widget-container {
   position: fixed;
-  bottom: 75px;
+  bottom: 60px;
   right: 20px;
   z-index: 9999;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  width: auto;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), right 0.5s ease, bottom 0.5s ease;
@@ -152,23 +153,26 @@
 /* 2. Khung chứa Cặp đôi Chibi đứng sát nhau */
 .chibi-couple-wrapper {
   display: flex;
+  flex-direction: row;
   align-items: flex-end;
-  justify-content: center;
-  position: relative;
+  justify-content: flex-end;
+  gap: 0;
+  width: auto;
 }
 
 /* 3. Khung nhân vật riêng lẻ (Chứa các Layer) */
 .chibi-builder-container {
   position: relative;
-  height: 140px;
-  width: 170px;
+  height: 110px;
+  width: 140px;
   cursor: pointer;
+  flex-shrink: 0;
   transition: transform 0.2s ease;
 }
 
 /* Đứng sát rạt vào nhau (Bé Hường lùi nhẹ đè lên chút cho ngọt) */
 #chibi-huong-builder {
-  margin-left: -18px;
+  margin-left: -20px;
 }
 
 .chibi-builder-container:hover {
