@@ -76,7 +76,7 @@
   height: 35%;
   display: block;
   justify-content: center;
-  padding: 60px 50px;
+  padding: 50px 40px;
   background: url('scroll-warm.png') center/cover;
   filter: drop-shadow(0 0 18px rgba(255, 189, 248, 0.7));
   position: relative;
